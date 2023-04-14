@@ -6,3 +6,18 @@
 //
 
 import Foundation
+import UIKit
+
+final class AppCoordinatorImpl: Coordinator {
+    var childCoordinators = [Coordinator]()
+    var navigationController: UINavigationController
+    
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+    }
+    
+    func start() {
+        let vc = ViewController()
+        navigationController.pushViewController(vc, animated: true)
+    }
+}
