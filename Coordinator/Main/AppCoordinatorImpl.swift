@@ -18,6 +18,7 @@ final class AppCoordinatorImpl: Coordinator {
     
     func start() {
         let vc = ViewController()
+        vc.presenter = WeatherPresenterImpl()
         navigationController.pushViewController(vc, animated: true)
     }
 }
