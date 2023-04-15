@@ -61,7 +61,7 @@ private extension WeatherPresenterImpl {
             }
             switch result {
             case .success(let weatherModel):
-                self.handleGetWeatherSuccess(weather: weatherModel)
+                self.handleGetWeatherSuccess(weatherModel: weatherModel)
             case .failure:
                 self.viewState = .errorLoadingWeather(city: city)
                 self.viewState = .idle
@@ -69,12 +69,15 @@ private extension WeatherPresenterImpl {
         }
     }
     
-    private func handleGetWeatherSuccess(weather: WeatherRoot) {
+    private func handleGetWeatherSuccess(weatherModel: WeatherRoot) {
         // remove array of weathers in use case
-        print(weather)
-        let viewModel = WeatherViewModel(name: weather.name,
-                                         temperature: weather.weather.first?.description ?? "Nada")
-        self.viewState = .updateWeather(viewModel: viewModel)
+//        print(weatherModel)
+//        let viewModel = WeatherViewModel(cityName: weatherModel.name,
+//                                         currentDegrees: weatherModel.main.temp,
+//                                         weatherDescription: weatherModel.weatherModel.description,
+//                                         highestDegrees: <#T##String#>,
+//                                         lowestDegrees: <#T##String#>)
+//        self.viewState = .updateWeather(viewModel: viewModel)
     }
 }
 
