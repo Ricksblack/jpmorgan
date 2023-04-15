@@ -8,12 +8,11 @@
 import Foundation
 
 protocol WeatherProvider {
+    // TODO: TOMODEL FOR ENTITIES
     typealias WeatherCompletion = (Result<WeatherRoot, Error>) -> Void
     func getWeather(from city: String,
                     completion: @escaping WeatherCompletion)
 }
-
-protocol WeatherService {}
 
 final class WeatherProviderImpl: WeatherProvider {
     let url: URL?
@@ -48,3 +47,4 @@ final class WeatherProviderImpl: WeatherProvider {
         }
     }
 }
+
