@@ -11,6 +11,7 @@ class WeatherViewController: UIViewController, Storyboardable {
     
     @IBOutlet private weak var cityTextfield: UITextField!
     @IBOutlet private weak var cityNameLabel: UILabel!
+    @IBOutlet weak var iconImage: UIImageView!
     @IBOutlet private weak var degreesLabel: UILabel!
     @IBOutlet private weak var weatherDescription: UILabel!
     @IBOutlet private weak var highestTemperature: UILabel!
@@ -82,5 +83,43 @@ extension WeatherViewController: WeatherViewContract {
         case .errorLoadingWeather(let city):
             handleErrorLoadingWeather(for: city)
         }
+    }
+}
+
+
+let imageCache = NSCache<NSString, UIImage>()
+extension UIImageView {
+    func loadImageUsingCache(withUrl urlString : String) {
+        let url = URL(string: urlString)
+        if url == nil {return}
+        self.image = nil
+
+        // check cached image
+        if let cachedImage = imageCache.object(forKey: urlString as NSString)  {
+            self.image = cachedImage
+            return
+        }
+
+        let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView.init(style: .medium)
+        addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+        activityIndicator.center = self.center
+
+        // if not, download image from url
+        URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+            if error != nil {
+                print(error!)
+                return
+            }
+
+            DispatchQueue.main.async {
+                if let image = UIImage(data: data!) {
+                    imageCache.setObject(image, forKey: urlString as NSString)
+                    self.image = image
+                    activityIndicator.removeFromSuperview()
+                }
+            }
+
+        }).resume()
     }
 }
