@@ -9,7 +9,7 @@ import Foundation
 
 protocol WeatherProvider {
     // TODO: TOMODEL FOR ENTITIES
-    typealias WeatherCompletion = (Result<WeatherRoot, Error>) -> Void
+    typealias WeatherCompletion = (Result<WeatherModel, Error>) -> Void
     func getWeather(from city: String,
                     completion: @escaping WeatherCompletion)
 }
@@ -24,7 +24,7 @@ final class WeatherProviderImpl: WeatherProvider {
         self.service = service
     }
 
-    func getWeather(from city: String, completion: @escaping (Result<WeatherRoot, Error>) -> Void) {
+    func getWeather(from city: String, completion: @escaping (Result<WeatherModel, Error>) -> Void) {
         let modifiedCity = city.replacingOccurrences(of: " ", with: "")
         guard let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=\(modifiedCity)&appid=6bd2b66fc1707a80a03c3b6ebd0c20b2") else {
             completion(.failure(NSError()))
@@ -36,7 +36,7 @@ final class WeatherProviderImpl: WeatherProvider {
                 case .success(let data):
                     do {
                         let model = try JSONDecoder().decode(WeatherRoot.self, from: data)
-                        completion(.success(model))
+                        completion(.success(model.toDomain()))
                     } catch {
                         print(error)
                     }

@@ -18,8 +18,10 @@ final class AppCoordinatorImpl: Coordinator {
     
     func start() {
         let weatherViewController = WeatherViewController.instantiate()
+        let weatherProvider = WeatherProviderImpl(url: nil)
+        let getWeatherUseCase = GetWeatherUseCaseImpl(provider: weatherProvider)
         let presenter = WeatherPresenterImpl(view: weatherViewController,
-                                             getWeatherProvider: WeatherProviderImpl(url: nil))
+                                             getWeatherUseCase: getWeatherUseCase)
         presenter.view = weatherViewController
         weatherViewController.presenter = presenter
         navigationController.pushViewController(weatherViewController, animated: true)

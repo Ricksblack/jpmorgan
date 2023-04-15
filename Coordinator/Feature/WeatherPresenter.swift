@@ -24,12 +24,12 @@ final class WeatherPresenterImpl {
     }
     
     var view: WeatherViewContract
-    let getWeatherProvider: WeatherProvider
+    let getWeatherUseCase: GetWeatherUseCase
 
     init(view: WeatherViewContract,
-         getWeatherProvider: WeatherProvider) {
+         getWeatherUseCase: GetWeatherUseCase) {
         self.view = view
-        self.getWeatherProvider = getWeatherProvider
+        self.getWeatherUseCase = getWeatherUseCase
     }
 }
 
@@ -55,7 +55,7 @@ extension WeatherPresenterImpl: WeatherPresenter {
 
 private extension WeatherPresenterImpl {
     func getWeather(for city: String) {
-        getWeatherProvider.getWeather(from: city) { [weak self] result in
+        getWeatherUseCase.run(city: city) { [weak self] result in
             guard let self = self else {
                 return
             }
@@ -69,7 +69,7 @@ private extension WeatherPresenterImpl {
         }
     }
     
-    private func handleGetWeatherSuccess(weatherModel: WeatherRoot) {
+    private func handleGetWeatherSuccess(weatherModel: WeatherModel) {
         // remove array of weathers in use case
 //        print(weatherModel)
 //        let viewModel = WeatherViewModel(cityName: weatherModel.name,
