@@ -8,6 +8,10 @@
 import Foundation
 
 struct WeatherViewModel: Equatable {
-    let name: String
-    let temperature: String
+    let cityName: String
+    let currentDegrees: String
+    let weatherDescription: String
+    let highestDegrees: String
+    let lowestDegrees: String
+    let feelsLike: String
 }
