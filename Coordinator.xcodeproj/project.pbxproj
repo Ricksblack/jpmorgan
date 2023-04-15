@@ -21,6 +21,7 @@
 		3C7258A729EA0CE500732B01 /* WeatherProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7258A629EA0CE500732B01 /* WeatherProvider.swift */; };
 		3C7258AA29EA112A00732B01 /* Storyboardable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7258A929EA112A00732B01 /* Storyboardable.swift */; };
 		3C7258AC29EA168B00732B01 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7258AB29EA168B00732B01 /* WeatherView.swift */; };
+		3C7258AE29EB1EBE00732B01 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7258AD29EB1EBE00732B01 /* WeatherViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		3C7258A629EA0CE500732B01 /* WeatherProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherProvider.swift; sourceTree = "<group>"; };
 		3C7258A929EA112A00732B01 /* Storyboardable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboardable.swift; sourceTree = "<group>"; };
 		3C7258AB29EA168B00732B01 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
+		3C7258AD29EB1EBE00732B01 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			children = (
 				3C72589C29E9D9F600732B01 /* WeatherPresenter.swift */,
 				3C7258AB29EA168B00732B01 /* WeatherView.swift */,
+				3C7258AD29EB1EBE00732B01 /* WeatherViewModel.swift */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C7258AA29EA112A00732B01 /* Storyboardable.swift in Sources */,
+				3C7258AE29EB1EBE00732B01 /* WeatherViewModel.swift in Sources */,
 				3C72589829E9BC4B00732B01 /* Coordinator.swift in Sources */,
 				3C72589F29E9F79B00732B01 /* WeatherViewController.swift in Sources */,
 				3C7258AC29EA168B00732B01 /* WeatherView.swift in Sources */,

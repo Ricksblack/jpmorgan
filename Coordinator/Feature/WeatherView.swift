@@ -7,11 +7,6 @@
 
 import Foundation
 
-struct WeatherViewModel: Equatable {
-    let name: String
-    let temperature: String
-}
-
 enum WeatherViewState: Equatable {
     case idle
     case updateWeather(viewModel: WeatherViewModel)
