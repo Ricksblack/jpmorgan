@@ -39,6 +39,7 @@ struct WeatherRoot: Decodable {
     
     func toDomain() -> WeatherModel {
         WeatherModel(cityName: name,
+                     icon: weather.first?.icon ?? "",
                      degrees: String(main.temp),
                      description: weather.first?.description ?? "",
                      highestTemperature: String(main.temp_max),

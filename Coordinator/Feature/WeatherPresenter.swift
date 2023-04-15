@@ -72,10 +72,12 @@ private extension WeatherPresenterImpl {
     private func handleGetWeatherSuccess(weatherModel: WeatherModel) {
         // remove array of weathers in use case
         print(weatherModel)
+        let url = "https://openweathermap.org/img/wn/\(weatherModel.icon)@2x.png"
         let currentDegrees = weatherModel.degrees + "º"
         let highestTemperature = weatherModel.highestTemperature + "º"
         let lowestTemperature = weatherModel.highestTemperature + "º"
         let viewModel = WeatherViewModel(cityName: weatherModel.cityName,
+                                         iconURL: url,
                                          currentDegrees: currentDegrees,
                                          weatherDescription: weatherModel.description,
                                          highestDegrees: highestTemperature,

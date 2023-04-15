@@ -9,6 +9,7 @@ import Foundation
 
 struct WeatherModel {
     let cityName: String
+    let icon: String
     let degrees: String
     let description: String
     let highestTemperature: String
