@@ -15,13 +15,38 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0aP-nC-tbe">
+                                <rect key="frame" x="16" y="59" width="277" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FOM-US-rew">
+                                <rect key="frame" x="301" y="59" width="78" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Search"/>
+                                <connections>
+                                    <action selector="didTapSearch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TL2-ws-5sd"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="FOM-US-rew" firstAttribute="leading" secondItem="0aP-nC-tbe" secondAttribute="trailing" constant="8" id="FYs-ls-x1h"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FOM-US-rew" secondAttribute="trailing" constant="14" id="K6R-vz-B03"/>
+                            <constraint firstItem="0aP-nC-tbe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Vru-oo-pNo"/>
+                            <constraint firstItem="FOM-US-rew" firstAttribute="top" secondItem="0aP-nC-tbe" secondAttribute="top" id="mnG-z4-XIu"/>
+                            <constraint firstItem="0aP-nC-tbe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="oIZ-zu-x3K"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cityTextfield" destination="0aP-nC-tbe" id="lVd-K9-dX9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140" y="-23"/>
+            <point key="canvasLocation" x="-338.16793893129767" y="-109.85915492957747"/>
         </scene>
     </scenes>
     <resources>

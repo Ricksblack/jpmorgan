@@ -9,13 +9,16 @@ import UIKit
 
 class WeatherViewController: UIViewController, Storyboardable {
     
+    @IBOutlet weak var cityTextfield: UITextField!
     var presenter: WeatherPresenter?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .blue
-        presenter?.getDefaultWeather()
-//        presenter?.getWeather(for: "Sunnyvale")
+        presenter?.loadDefaultWeather()
+    }
+    
+    @IBAction func didTapSearch(_ sender: UIButton) {
+        presenter?.didTapSearch(city: cityTextfield.text)
     }
 }
 
@@ -24,7 +27,6 @@ class WeatherViewController: UIViewController, Storyboardable {
 private extension WeatherViewController {
     func handleUpdateWeather(_ viewModel: WeatherViewModel) {
 //        cityLabel.text = viewModel.temperature
-        
     }
 }
 

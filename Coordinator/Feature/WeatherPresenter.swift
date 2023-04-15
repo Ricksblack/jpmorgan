@@ -9,8 +9,8 @@ import Foundation
 
 protocol WeatherPresenter {
     var view: WeatherViewContract { get set }
-    func getDefaultWeather()
-    func getWeather(for city: String)
+    func loadDefaultWeather()
+    func didTapSearch(city: String?)
 }
 
 final class WeatherPresenterImpl {
@@ -33,28 +33,48 @@ final class WeatherPresenterImpl {
     }
 }
 
+// MARK: - WeatherPresenter
+
 extension WeatherPresenterImpl: WeatherPresenter {
-    func getDefaultWeather() {
+    func loadDefaultWeather() {
         // load from cache with the latest searched city
         // save city before closing the app
     }
-    
+
+    func didTapSearch(city: String?) {
+        guard let city = city else {
+            // update view state to show error
+            return
+        }
+        getWeather(for: city.lowercased())
+    }
+}
+
+// MARK: - PRIVATE EXTENSION
+
+private extension WeatherPresenterImpl {
     func getWeather(for city: String) {
-        getWeatherProvider.getWeather(from: city) { result in
+        getWeatherProvider.getWeather(from: city) { [weak self] result in
+            guard let self = self else {
+                return
+            }
             switch result {
-            case .success(let model):
-                self.viewState = .updateWeather(viewModel: WeatherViewModel(name: model.name,
-                                                                            temperature: model.weather.first?.description ?? "Nada"))
+            case .success(let weatherModel):
+                print(weatherModel)
+                self.handleGetWeatherSuccess(weather: weatherModel)
             case .failure(let error):
                 print(error)
             }
         }
     }
+    
+    private func handleGetWeatherSuccess(weather: WeatherRoot) {
+        // remove array of weathers in use case
+        let viewModel = WeatherViewModel(name: weather.name,
+                                         temperature: weather.weather.first?.description ?? "Nada")
+        self.viewState = .updateWeather(viewModel: viewModel)
+    }
 }
-
-
-
-
 
 
 
