@@ -64,6 +64,7 @@ private extension WeatherPresenterImpl {
                 self.handleGetWeatherSuccess(weather: weatherModel)
             case .failure:
                 self.viewState = .errorLoadingWeather(city: city)
+                self.viewState = .idle
             }
         }
     }
