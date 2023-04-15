@@ -7,10 +7,6 @@
 
 import Foundation
 
-struct WeatherModel {
-    
-}
-
 protocol GetWeatherUseCase {
     typealias WeatherUseCaseCompletion = (Result<WeatherModel, Error>) -> Void
     func run(city: String, completion: WeatherUseCaseCompletion)
