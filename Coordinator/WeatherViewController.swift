@@ -9,12 +9,12 @@ import UIKit
 
 class WeatherViewController: UIViewController, Storyboardable {
     
-    @IBOutlet weak var cityTextfield: UITextField!
-    @IBOutlet weak var cityNameLabel: UILabel!
-    @IBOutlet weak var degreesLabel: UILabel!
-    @IBOutlet weak var weatherDescription: UILabel!
-    @IBOutlet weak var highestTemperature: UILabel!
-    @IBOutlet weak var lowestTemperature: UILabel!
+    @IBOutlet private weak var cityTextfield: UITextField!
+    @IBOutlet private weak var cityNameLabel: UILabel!
+    @IBOutlet private weak var degreesLabel: UILabel!
+    @IBOutlet private weak var weatherDescription: UILabel!
+    @IBOutlet private weak var highestTemperature: UILabel!
+    @IBOutlet private weak var lowestTemperature: UILabel!
 
     var presenter: WeatherPresenter?
 
@@ -32,8 +32,17 @@ class WeatherViewController: UIViewController, Storyboardable {
 
 private extension WeatherViewController {
     func setup() {
+        updateUIElements()
         cityTextfield.placeholder = "Enter a city name"
         presenter?.loadDefaultWeather()
+    }
+    
+    func updateUIElements() {
+        cityNameLabel.font = .systemFont(ofSize: 30, weight: .heavy)
+        degreesLabel.font = .systemFont(ofSize: 40, weight: .bold)
+        weatherDescription.font = .systemFont(ofSize: 20, weight: .semibold)
+        highestTemperature.font = .systemFont(ofSize: 15, weight: .regular)
+        lowestTemperature.font = .systemFont(ofSize: 15, weight: .regular)
     }
 
     func handleUpdateWeather(_ viewModel: WeatherViewModel) {
