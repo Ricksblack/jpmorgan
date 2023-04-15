@@ -10,6 +10,12 @@ import UIKit
 class WeatherViewController: UIViewController, Storyboardable {
     
     @IBOutlet weak var cityTextfield: UITextField!
+    @IBOutlet weak var cityNameLabel: UILabel!
+    @IBOutlet weak var degreesLabel: UILabel!
+    @IBOutlet weak var weatherDescription: UILabel!
+    @IBOutlet weak var highestTemperature: UILabel!
+    @IBOutlet weak var lowestTemperature: UILabel!
+
     var presenter: WeatherPresenter?
 
     override func viewDidLoad() {
