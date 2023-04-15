@@ -17,7 +17,7 @@ final class AppCoordinatorImpl: Coordinator {
     }
     
     func start() {
-        let weatherViewController = WeatherScreenViewController.instantiate()
+        let weatherViewController = WeatherViewController.instantiate()
         let presenter = WeatherPresenterImpl(view: weatherViewController,
                                              getWeatherProvider: WeatherProviderImpl(url: nil))
         presenter.view = weatherViewController
