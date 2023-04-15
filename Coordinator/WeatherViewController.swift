@@ -37,7 +37,11 @@ private extension WeatherViewController {
     }
 
     func handleUpdateWeather(_ viewModel: WeatherViewModel) {
-//        cityLabel.text = viewModel.temperature
+        cityNameLabel.text = viewModel.cityName
+        degreesLabel.text = viewModel.currentDegrees
+        weatherDescription.text = viewModel.weatherDescription
+        highestTemperature.text = viewModel.highestDegrees
+        lowestTemperature.text = viewModel.lowestDegrees
     }
     
     func showEmptyWeather() {

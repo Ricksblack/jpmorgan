@@ -71,13 +71,17 @@ private extension WeatherPresenterImpl {
     
     private func handleGetWeatherSuccess(weatherModel: WeatherModel) {
         // remove array of weathers in use case
-//        print(weatherModel)
-//        let viewModel = WeatherViewModel(cityName: weatherModel.name,
-//                                         currentDegrees: weatherModel.main.temp,
-//                                         weatherDescription: weatherModel.weatherModel.description,
-//                                         highestDegrees: <#T##String#>,
-//                                         lowestDegrees: <#T##String#>)
-//        self.viewState = .updateWeather(viewModel: viewModel)
+        print(weatherModel)
+        let currentDegrees = weatherModel.degrees + "º"
+        let highestTemperature = weatherModel.highestTemperature + "º"
+        let lowestTemperature = weatherModel.highestTemperature + "º"
+        let viewModel = WeatherViewModel(cityName: weatherModel.cityName,
+                                         currentDegrees: currentDegrees,
+                                         weatherDescription: weatherModel.description,
+                                         highestDegrees: highestTemperature,
+                                         lowestDegrees: lowestTemperature,
+                                         feelsLike: weatherModel.feelsLike)
+        self.viewState = .updateWeather(viewModel: viewModel)
     }
 }
 
