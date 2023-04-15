@@ -15,6 +15,8 @@ struct WeatherViewModel: Equatable {
 enum WeatherViewState: Equatable {
     case idle
     case updateWeather(viewModel: WeatherViewModel)
+    case empty
+    case errorLoadingWeather(city: String)
 }
 
 protocol WeatherViewContract: AnyObject {

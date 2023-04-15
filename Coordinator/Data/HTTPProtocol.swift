@@ -20,6 +20,9 @@ extension URLSession: HTTPProtocol {
                     let response = response as? HTTPURLResponse,
                   response.statusCode == 200  {
                 completion(.success(data))
+            } else {
+                // define error type
+                completion(.failure(NSError()))
             }
         }
         .resume()

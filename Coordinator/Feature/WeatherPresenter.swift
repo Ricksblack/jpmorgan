@@ -39,6 +39,7 @@ extension WeatherPresenterImpl: WeatherPresenter {
     func loadDefaultWeather() {
         // load from cache with the latest searched city
         // save city before closing the app
+        viewState = .empty
     }
 
     func didTapSearch(city: String?) {
@@ -60,16 +61,16 @@ private extension WeatherPresenterImpl {
             }
             switch result {
             case .success(let weatherModel):
-                print(weatherModel)
                 self.handleGetWeatherSuccess(weather: weatherModel)
-            case .failure(let error):
-                print(error)
+            case .failure:
+                self.viewState = .errorLoadingWeather(city: city)
             }
         }
     }
     
     private func handleGetWeatherSuccess(weather: WeatherRoot) {
         // remove array of weathers in use case
+        print(weather)
         let viewModel = WeatherViewModel(name: weather.name,
                                          temperature: weather.weather.first?.description ?? "Nada")
         self.viewState = .updateWeather(viewModel: viewModel)

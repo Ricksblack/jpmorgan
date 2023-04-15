@@ -14,7 +14,7 @@ class WeatherViewController: UIViewController, Storyboardable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter?.loadDefaultWeather()
+        setup()
     }
     
     @IBAction func didTapSearch(_ sender: UIButton) {
@@ -25,8 +25,27 @@ class WeatherViewController: UIViewController, Storyboardable {
 // MARK: - PRIVATE EXTENSIONS
 
 private extension WeatherViewController {
+    func setup() {
+        cityTextfield.placeholder = "Enter a city name"
+        presenter?.loadDefaultWeather()
+    }
+
     func handleUpdateWeather(_ viewModel: WeatherViewModel) {
 //        cityLabel.text = viewModel.temperature
+    }
+    
+    func showEmptyWeather() {
+        
+    }
+    
+    func handleErrorLoadingWeather(for city: String) {
+        // move this logic to coordinator
+        let okAction = UIAlertAction(title: "Ok", style: .default)
+        let alertController = UIAlertController(title: "Error",
+                                                message: "There was an error loading the weather for \(city)",
+                                                preferredStyle: .alert)
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true)
     }
 }
 
@@ -39,6 +58,10 @@ extension WeatherViewController: WeatherViewContract {
             break
         case .updateWeather(let viewModel):
             handleUpdateWeather(viewModel)
+        case .empty:
+            showEmptyWeather()
+        case .errorLoadingWeather(let city):
+            handleErrorLoadingWeather(for: city)
         }
     }
 }
