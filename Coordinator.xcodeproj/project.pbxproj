@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3C05D69D29EBA119009874B5 /* GetCityNameUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C05D69C29EBA119009874B5 /* GetCityNameUseCase.swift */; };
+		3C05D6A029EBA209009874B5 /* GetCityNameProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C05D69F29EBA209009874B5 /* GetCityNameProvider.swift */; };
 		3C404D4B29E92E9900C16B3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C404D4A29E92E9900C16B3A /* AppDelegate.swift */; };
 		3C404D4D29E92E9900C16B3A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C404D4C29E92E9900C16B3A /* SceneDelegate.swift */; };
 		3C404D5229E92E9900C16B3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C404D5029E92E9900C16B3A /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		3C05D69C29EBA119009874B5 /* GetCityNameUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCityNameUseCase.swift; sourceTree = "<group>"; };
+		3C05D69F29EBA209009874B5 /* GetCityNameProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCityNameProvider.swift; sourceTree = "<group>"; };
 		3C404D4729E92E9900C16B3A /* Coordinator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coordinator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C404D4A29E92E9900C16B3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3C404D4C29E92E9900C16B3A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				3C7258A629EA0CE500732B01 /* WeatherProvider.swift */,
+				3C05D69F29EBA209009874B5 /* GetCityNameProvider.swift */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				3C05D69D29EBA119009874B5 /* GetCityNameUseCase.swift in Sources */,
 				3C7258A229EA085600732B01 /* WeatherRootEntity.swift in Sources */,
 				3C404D4B29E92E9900C16B3A /* AppDelegate.swift in Sources */,
+				3C05D6A029EBA209009874B5 /* GetCityNameProvider.swift in Sources */,
 				3C7258A429EA093B00732B01 /* HTTPProtocol.swift in Sources */,
 				3C7258BB29EB9B0D00732B01 /* UserLocationCoordinatesModel.swift in Sources */,
 				3C7258B429EB245600732B01 /* WeatherModel.swift in Sources */,
