@@ -25,6 +25,8 @@
 		3C7258B129EB21D500732B01 /* GetWeatherUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7258B029EB21D500732B01 /* GetWeatherUseCase.swift */; };
 		3C7258B429EB245600732B01 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7258B329EB245600732B01 /* WeatherModel.swift */; };
 		3C7258B629EB4B4200732B01 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7258B529EB4B4200732B01 /* UIImage+Extensions.swift */; };
+		3C7258B929EB6B6000732B01 /* GetUserLocationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7258B829EB6B6000732B01 /* GetUserLocationUseCase.swift */; };
+		3C7258BB29EB9B0D00732B01 /* UserLocationCoordinatesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7258BA29EB9B0D00732B01 /* UserLocationCoordinatesModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		3C7258B029EB21D500732B01 /* GetWeatherUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetWeatherUseCase.swift; sourceTree = "<group>"; };
 		3C7258B329EB245600732B01 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		3C7258B529EB4B4200732B01 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		3C7258B829EB6B6000732B01 /* GetUserLocationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserLocationUseCase.swift; sourceTree = "<group>"; };
+		3C7258BA29EB9B0D00732B01 /* UserLocationCoordinatesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationCoordinatesModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				3C7258B329EB245600732B01 /* WeatherModel.swift */,
+				3C7258BA29EB9B0D00732B01 /* UserLocationCoordinatesModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -155,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				3C7258B029EB21D500732B01 /* GetWeatherUseCase.swift */,
+				3C7258B829EB6B6000732B01 /* GetUserLocationUseCase.swift */,
 			);
 			name = "Use Cases";
 			sourceTree = "<group>";
@@ -232,6 +238,7 @@
 			files = (
 				3C7258AA29EA112A00732B01 /* Storyboardable.swift in Sources */,
 				3C7258AE29EB1EBE00732B01 /* WeatherViewModel.swift in Sources */,
+				3C7258B929EB6B6000732B01 /* GetUserLocationUseCase.swift in Sources */,
 				3C72589829E9BC4B00732B01 /* Coordinator.swift in Sources */,
 				3C72589F29E9F79B00732B01 /* WeatherViewController.swift in Sources */,
 				3C7258AC29EA168B00732B01 /* WeatherView.swift in Sources */,
@@ -240,6 +247,7 @@
 				3C7258A229EA085600732B01 /* WeatherRootEntity.swift in Sources */,
 				3C404D4B29E92E9900C16B3A /* AppDelegate.swift in Sources */,
 				3C7258A429EA093B00732B01 /* HTTPProtocol.swift in Sources */,
+				3C7258BB29EB9B0D00732B01 /* UserLocationCoordinatesModel.swift in Sources */,
 				3C7258B429EB245600732B01 /* WeatherModel.swift in Sources */,
 				3C404D4D29E92E9900C16B3A /* SceneDelegate.swift in Sources */,
 				3C7258B629EB4B4200732B01 /* UIImage+Extensions.swift in Sources */,
