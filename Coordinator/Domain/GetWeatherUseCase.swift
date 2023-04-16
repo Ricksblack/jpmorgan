@@ -15,17 +15,17 @@ public protocol GetWeatherUseCase {
 }
 
 final class GetWeatherUseCaseImpl: GetWeatherUseCase {
-    let provider: WeatherProvider
+    let weatherProvider: WeatherProvider
     let getCityNameUseCase: GetCityNameUseCase
 
     init(provider: WeatherProvider,
          getCityNameUseCase: GetCityNameUseCase) {
-        self.provider = provider
+        self.weatherProvider = provider
         self.getCityNameUseCase = getCityNameUseCase
     }
 
     func run(city: String, completion: @escaping WeatherByCityUseCaseCompletion) {
-        provider.getWeather(from: city) { result in
+        weatherProvider.getWeather(from: city) { result in
             switch result {
             case .success(let model):
                 completion(.success(model))
