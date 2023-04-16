@@ -37,6 +37,15 @@ final class WeatherPresenterImpl {
 
 extension WeatherPresenterImpl: WeatherPresenter {
     func loadDefaultWeather() {
+        getWeatherUseCase.fromLocationIfAvailable { result in
+            switch result {
+            case .success(let weatherModel):
+                self.handleGetWeatherSuccess(weatherModel: weatherModel)
+            case .failure:
+                // TODO: SHOW ERROR
+                self.viewState = .idle
+            }
+        }
     }
 
     func didTapSearch(city: String?) {
@@ -67,7 +76,6 @@ private extension WeatherPresenterImpl {
     }
 
     func handleGetWeatherSuccess(weatherModel: WeatherModel) {
-        // remove array of weathers in use case
         print(weatherModel)
         let url = "https://openweathermap.org/img/wn/\(weatherModel.icon)@2x.png"
         let currentDegrees = weatherModel.degrees + "º"
@@ -81,8 +89,5 @@ private extension WeatherPresenterImpl {
                                          lowestDegrees: lowestTemperature,
                                          feelsLike: weatherModel.feelsLike)
         self.viewState = .updateWeather(viewModel: viewModel)
-    }
-
-    func handleGetUserLocationSuccess(with coordinates: UserLocationCoordinatesModel) {
     }
 }
