@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol GetCityNameProvider {
+public protocol GetCityNameProvider {
     typealias WeatherCompletion = (Result<String, Error>) -> Void
 
     func run(with coordinates: UserLocationCoordinatesModel,

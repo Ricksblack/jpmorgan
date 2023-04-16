@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UserLocationCoordinatesModel {
+public struct UserLocationCoordinatesModel {
     let latitute: String
     let longitude: String
 }

@@ -13,12 +13,12 @@ public protocol GetCityNameUseCase {
     func run(completion: @escaping UserLocationUseCaseCompletion)
 }
 
-final class GetCityNameUseCaseImpl: GetCityNameUseCase {
+public final class GetCityNameUseCaseImpl: GetCityNameUseCase {
     let getUserLocationUseCase: GetUserLocationUseCase
     let getCityNameProvider: GetCityNameProvider
     
     public init(getUserLocationUseCase: GetUserLocationUseCase,
-         getCityNameProvider: GetCityNameProvider) {
+                getCityNameProvider: GetCityNameProvider) {
         self.getUserLocationUseCase = getUserLocationUseCase
         self.getCityNameProvider = getCityNameProvider
     }

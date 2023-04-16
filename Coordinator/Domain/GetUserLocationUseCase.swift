@@ -8,7 +8,7 @@
 import Foundation
 import CoreLocation
 
-protocol GetUserLocationUseCase {
+public protocol GetUserLocationUseCase {
     typealias UserLocationUseCaseCompletion = (Result<UserLocationCoordinatesModel, Error>) -> Void
     func run(completion: @escaping UserLocationUseCaseCompletion)
 }
