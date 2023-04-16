@@ -44,8 +44,18 @@ final class GetWeatherUseCaseImpl: GetWeatherUseCase {
             case .success(let city):
                 run(city: city, completion: completion)
             case .failure(let error):
-                completion(.failure(error))
+                if let city = getLastSearchedCity() {
+                    run(city: city, completion: completion)
+                } else {
+                    completion(.failure(error))
+                }
             }
         }
+    }
+}
+
+private extension GetWeatherUseCaseImpl {
+    func getLastSearchedCity() -> String? {
+        UserDefaults.standard.value(forKey: "lastSearchedCity") as? String
     }
 }

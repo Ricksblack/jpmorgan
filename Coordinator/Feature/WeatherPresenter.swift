@@ -53,6 +53,7 @@ extension WeatherPresenterImpl: WeatherPresenter {
             // update view state to show error
             return
         }
+        UserDefaults.standard.set(city, forKey: "lastSearchedCity")
         getWeather(for: city.lowercased())
     }
 }
