@@ -10,4 +10,9 @@ import Foundation
 public struct UserLocationCoordinatesModel {
     let latitute: String
     let longitude: String
+
+    public init(latitute: String, longitude: String) {
+        self.latitute = latitute
+        self.longitude = longitude
+    }
 }
