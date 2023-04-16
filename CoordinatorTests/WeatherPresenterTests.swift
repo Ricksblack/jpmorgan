@@ -1,5 +1,5 @@
 //
-//  WeatherProviderTests.swift
+//  WeatherPresenterTests.swift
 //  CoordinatorTests
 //
 //  Created by Ricardo Moreno on 4/16/23.
@@ -8,7 +8,7 @@
 import XCTest
 import Coordinator
 
-final class WeatherProviderTests: XCTestCase {
+final class WeatherPresenterTests: XCTestCase {
     var sut: WeatherPresenter!
     private var view: WeatherViewSpy!
     private var getWeatherUseCase: GetWeatherUseCaseSpy!
