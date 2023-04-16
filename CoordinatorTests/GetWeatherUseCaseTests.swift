@@ -52,7 +52,7 @@ final class GetWeatherUseCaseTests: XCTestCase {
         
         //THEN
         switch capturedResult {
-        case .success(let model):
+        case .success:
             XCTFail("Incorrect state")
         case .failure, .none:
             break
