@@ -14,11 +14,22 @@ protocol GetCityNameUseCase {
 }
 
 final class GetCityNameUseCaseImpl: GetCityNameUseCase {
-    init() {
+    let provider: GetCityNameProvider
+    init(provider: GetCityNameProvider) {
+        self.provider = provider
     }
     
     func run(with coordinates: UserLocationCoordinatesModel,
-             completion: @escaping UserLocationUseCaseCompletion) {}
+             completion: @escaping UserLocationUseCaseCompletion) {
+        provider.run(with: coordinates) { result in
+            switch result {
+            case .success(let city):
+                print(city)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
 }
 
 // MARK: - PRIVATE FUNCTIONS
