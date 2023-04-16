@@ -52,8 +52,10 @@ private extension GetUserLocationUseCaseImpl {
     }
     
     func getUserLocation() {
-        let model = UserLocationCoordinatesModel(latitute: locationManager.location?.coordinate.latitude.description ?? "",
-                                            longitude: locationManager.location?.coordinate.longitude.description ?? "")
+        let latitude = locationManager.location?.coordinate.latitude.description ?? ""
+        let longitude = locationManager.location?.coordinate.longitude.description ?? ""
+        let model = UserLocationCoordinatesModel(latitute: latitude,
+                                                 longitude: longitude)
         completion?(.success(model))
     }
 }

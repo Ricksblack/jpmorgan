@@ -25,11 +25,14 @@ final class WeatherPresenterImpl {
     
     var view: WeatherViewContract
     let getWeatherUseCase: GetWeatherUseCase
+    let getUserLocationUseCase: GetUserLocationUseCase
 
     init(view: WeatherViewContract,
-         getWeatherUseCase: GetWeatherUseCase) {
+         getWeatherUseCase: GetWeatherUseCase,
+         getUserLocationUseCase: GetUserLocationUseCase) {
         self.view = view
         self.getWeatherUseCase = getWeatherUseCase
+        self.getUserLocationUseCase = getUserLocationUseCase
     }
 }
 
@@ -37,8 +40,15 @@ final class WeatherPresenterImpl {
 
 extension WeatherPresenterImpl: WeatherPresenter {
     func loadDefaultWeather() {
-        // load from cache with the latest searched city
-        // save city before closing the app
+        getUserLocationUseCase.run { result in
+            switch result {
+            case .success(let coordinates):
+                print(coordinates)
+            case .failure:
+                // TODO: load last city searched
+                print("There was an error")
+            }
+        }
         viewState = .empty
     }
 
