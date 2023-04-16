@@ -31,6 +31,7 @@
 		3C7258BB29EB9B0D00732B01 /* UserLocationCoordinatesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7258BA29EB9B0D00732B01 /* UserLocationCoordinatesModel.swift */; };
 		3CE2C33029EC8377001BE4BD /* WeatherPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE2C32F29EC8377001BE4BD /* WeatherPresenterTests.swift */; };
 		3CE2C33229EC9DD3001BE4BD /* GetWeatherUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE2C33129EC9DD3001BE4BD /* GetWeatherUseCaseTests.swift */; };
+		3CE2C33429ECAA19001BE4BD /* GetCityNameUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE2C33329ECAA19001BE4BD /* GetCityNameUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		3CE2C32629EC835C001BE4BD /* CoordinatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoordinatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CE2C32F29EC8377001BE4BD /* WeatherPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherPresenterTests.swift; sourceTree = "<group>"; };
 		3CE2C33129EC9DD3001BE4BD /* GetWeatherUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetWeatherUseCaseTests.swift; sourceTree = "<group>"; };
+		3CE2C33329ECAA19001BE4BD /* GetCityNameUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCityNameUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +218,7 @@
 			children = (
 				3CE2C32F29EC8377001BE4BD /* WeatherPresenterTests.swift */,
 				3CE2C33129EC9DD3001BE4BD /* GetWeatherUseCaseTests.swift */,
+				3CE2C33329ECAA19001BE4BD /* GetCityNameUseCase.swift */,
 			);
 			path = CoordinatorTests;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 			files = (
 				3CE2C33029EC8377001BE4BD /* WeatherPresenterTests.swift in Sources */,
 				3CE2C33229EC9DD3001BE4BD /* GetWeatherUseCaseTests.swift in Sources */,
+				3CE2C33429ECAA19001BE4BD /* GetCityNameUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
