@@ -40,9 +40,8 @@ private extension GetCityNameUseCaseImpl {
             case .success(let coordinates):
                 handleGetUserLocationSuccess(with: coordinates,
                                              completion: completion)
-            case .failure:
-                // TODO: load last city searched
-                print("There was an error")
+            case .failure(let error):
+                completion(.failure(error))
             }
         }
     }
@@ -52,10 +51,8 @@ private extension GetCityNameUseCaseImpl {
         getCityNameProvider.run(with: coordinates) { result in
             switch result {
             case .success(let city):
-                print(city)
                 completion(.success(city))
             case .failure(let error):
-                print(error.localizedDescription)
                 completion(.failure(error))
             }
         }
