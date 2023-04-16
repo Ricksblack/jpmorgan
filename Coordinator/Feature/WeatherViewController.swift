@@ -83,6 +83,8 @@ extension WeatherViewController: WeatherViewContract {
             showEmptyWeather()
         case .errorLoadingWeather(let city):
             handleErrorLoadingWeather(for: city)
+        case .errorLoadingDefault:
+            break
         }
     }
 }

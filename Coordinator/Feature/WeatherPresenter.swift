@@ -43,6 +43,7 @@ extension WeatherPresenterImpl: WeatherPresenter {
                 self.handleGetWeatherSuccess(weatherModel: weatherModel)
             case .failure:
                 // TODO: SHOW ERROR
+                self.viewState = .errorLoadingDefault
                 self.viewState = .idle
             }
         }

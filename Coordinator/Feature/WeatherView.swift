@@ -12,6 +12,7 @@ public enum WeatherViewState: Equatable {
     case updateWeather(viewModel: WeatherViewModel)
     case empty
     case errorLoadingWeather(city: String)
+    case errorLoadingDefault
 }
 
 public protocol WeatherViewContract: AnyObject {
