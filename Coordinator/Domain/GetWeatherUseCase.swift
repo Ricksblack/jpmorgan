@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol GetWeatherUseCase {
+public protocol GetWeatherUseCase {
     typealias WeatherByCityUseCaseCompletion = (Result<WeatherModel, Error>) -> Void
 
     func run(city: String, completion: @escaping WeatherByCityUseCaseCompletion)

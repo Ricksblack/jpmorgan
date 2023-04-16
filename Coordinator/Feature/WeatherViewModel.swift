@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct WeatherViewModel: Equatable {
+public struct WeatherViewModel: Equatable {
     let cityName: String
     let iconURL: String
     let currentDegrees: String

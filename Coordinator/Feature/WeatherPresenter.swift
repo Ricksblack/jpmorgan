@@ -7,13 +7,13 @@
 
 import Foundation
 
-protocol WeatherPresenter {
+public protocol WeatherPresenter {
     var view: WeatherViewContract { get set }
     func loadDefaultWeather()
     func didTapSearch(city: String?)
 }
 
-final class WeatherPresenterImpl {
+public final class WeatherPresenterImpl {
     var viewState: WeatherViewState = .idle {
         didSet {
             guard oldValue != viewState else {
@@ -23,10 +23,10 @@ final class WeatherPresenterImpl {
         }
     }
     
-    var view: WeatherViewContract
+    public var view: WeatherViewContract
     let getWeatherUseCase: GetWeatherUseCase
 
-    init(view: WeatherViewContract,
+    public init(view: WeatherViewContract,
          getWeatherUseCase: GetWeatherUseCase) {
         self.view = view
         self.getWeatherUseCase = getWeatherUseCase
@@ -36,7 +36,7 @@ final class WeatherPresenterImpl {
 // MARK: - WeatherPresenter
 
 extension WeatherPresenterImpl: WeatherPresenter {
-    func loadDefaultWeather() {
+    public func loadDefaultWeather() {
         getWeatherUseCase.fromLocationIfAvailable { result in
             switch result {
             case .success(let weatherModel):
@@ -48,7 +48,7 @@ extension WeatherPresenterImpl: WeatherPresenter {
         }
     }
 
-    func didTapSearch(city: String?) {
+    public func didTapSearch(city: String?) {
         guard let city = city else {
             // update view state to show error
             return

@@ -7,13 +7,13 @@
 
 import Foundation
 
-enum WeatherViewState: Equatable {
+public enum WeatherViewState: Equatable {
     case idle
     case updateWeather(viewModel: WeatherViewModel)
     case empty
     case errorLoadingWeather(city: String)
 }
 
-protocol WeatherViewContract: AnyObject {
+public protocol WeatherViewContract: AnyObject {
     func changeViewState(_ state: WeatherViewState)
 }

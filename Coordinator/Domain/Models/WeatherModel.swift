@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct WeatherModel {
+public struct WeatherModel {
     let cityName: String
     let icon: String
     let degrees: String
