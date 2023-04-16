@@ -25,8 +25,15 @@ final class WeatherProviderImpl: WeatherProvider {
     }
 
     func getWeather(from city: String, completion: @escaping (Result<WeatherModel, Error>) -> Void) {
-        let modifiedCity = city.replacingOccurrences(of: " ", with: "")
-        guard let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=\(modifiedCity)&appid=6bd2b66fc1707a80a03c3b6ebd0c20b2") else {
+        var components = URLComponents()
+        components.queryItems = [
+            URLQueryItem(name: "q", value: city)
+        ]
+        guard let city = components.string else {
+            return
+        }
+//        let modifiedCity = city.replacingOccurrences(of: " ", with: "")
+        guard let url = URL(string: "https://api.openweathermap.org/data/2.5/weather\(city)&appid=6bd2b66fc1707a80a03c3b6ebd0c20b2") else {
             completion(.failure(NSError()))
             return
         }
