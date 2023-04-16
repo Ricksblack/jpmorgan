@@ -12,7 +12,6 @@ protocol GetWeatherUseCase {
     typealias WeatherByLocationUseCaseCompletion = (Result<WeatherModel, Error>) -> Void
 
     func run(city: String, completion: @escaping WeatherByCityUseCaseCompletion)
-    func run(latitude: String, longitude: String, completion: @escaping WeatherByLocationUseCaseCompletion)
 }
 
 final class GetWeatherUseCaseImpl: GetWeatherUseCase {
@@ -31,9 +30,5 @@ final class GetWeatherUseCaseImpl: GetWeatherUseCase {
                 completion(.failure(error))
             }
         }
-    }
-
-    func run(latitude: String, longitude: String, completion: @escaping WeatherByLocationUseCaseCompletion) {
-        
     }
 }

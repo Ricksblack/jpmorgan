@@ -100,15 +100,5 @@ private extension WeatherPresenterImpl {
     }
 
     func handleGetUserLocationSuccess(with coordinates: UserLocationCoordinatesModel) {
-        getWeatherUseCase.run(latitude: coordinates.latitute,
-                              longitude: coordinates.longitude) { result in
-            switch result {
-            case .success(let model):
-                print(model)
-            case .failure(let error):
-                // TODO: present error retrieving weather info
-                print(error)
-            }
-        }
     }
 }
