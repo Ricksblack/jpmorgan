@@ -67,6 +67,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C05D69E29EBA1E4009874B5 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				3C7258A629EA0CE500732B01 /* WeatherProvider.swift */,
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
 		3C404D3E29E92E9900C16B3A = {
 			isa = PBXGroup;
 			children = (
@@ -124,9 +132,9 @@
 		3C7258A029EA084A00732B01 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				3C05D69E29EBA1E4009874B5 /* Providers */,
 				3C7258A129EA085600732B01 /* WeatherRootEntity.swift */,
 				3C7258A329EA093B00732B01 /* HTTPProtocol.swift */,
-				3C7258A629EA0CE500732B01 /* WeatherProvider.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
