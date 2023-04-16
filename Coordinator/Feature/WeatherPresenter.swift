@@ -40,10 +40,13 @@ final class WeatherPresenterImpl {
 
 extension WeatherPresenterImpl: WeatherPresenter {
     func loadDefaultWeather() {
-        getUserLocationUseCase.run { result in
+        getUserLocationUseCase.run { [weak self] result in
+            guard let self = self else {
+                return
+            }
             switch result {
             case .success(let coordinates):
-                print(coordinates)
+                handleGetUserLocationSuccess(with: coordinates)
             case .failure:
                 // TODO: load last city searched
                 print("There was an error")
@@ -78,8 +81,8 @@ private extension WeatherPresenterImpl {
             }
         }
     }
-    
-    private func handleGetWeatherSuccess(weatherModel: WeatherModel) {
+
+    func handleGetWeatherSuccess(weatherModel: WeatherModel) {
         // remove array of weathers in use case
         print(weatherModel)
         let url = "https://openweathermap.org/img/wn/\(weatherModel.icon)@2x.png"
@@ -95,8 +98,17 @@ private extension WeatherPresenterImpl {
                                          feelsLike: weatherModel.feelsLike)
         self.viewState = .updateWeather(viewModel: viewModel)
     }
+
+    func handleGetUserLocationSuccess(with coordinates: UserLocationCoordinatesModel) {
+        getWeatherUseCase.run(latitude: coordinates.latitute,
+                              longitude: coordinates.longitude) { result in
+            switch result {
+            case .success(let model):
+                print(model)
+            case .failure(let error):
+                // TODO: present error retrieving weather info
+                print(error)
+            }
+        }
+    }
 }
-
-
-
-//https://openweathermap.org/img/wn/10d@2x.png images\
