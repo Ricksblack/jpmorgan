@@ -24,14 +24,16 @@ final class GetCityNameUseCaseTests: XCTestCase {
     }
     
     private class GetUserLocationUseCaseSpy: GetUserLocationUseCase {
+        var capturedCompletion: UserLocationUseCaseCompletion?
         func run(completion: @escaping UserLocationUseCaseCompletion) {
-            
+            capturedCompletion = completion
         }
     }
     
     private class GetCityNameProviderSpy: GetCityNameProvider {
+        var capturedCompletion: WeatherCompletion?
         func run(with coordinates: Coordinator.UserLocationCoordinatesModel, completion: @escaping WeatherCompletion) {
-            
+            capturedCompletion = completion
         }
     }
 }
