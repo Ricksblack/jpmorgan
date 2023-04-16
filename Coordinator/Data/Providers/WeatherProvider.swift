@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol WeatherProvider {
+public protocol WeatherProvider {
     typealias WeatherCompletion = (Result<WeatherModel, Error>) -> Void
 
     func getWeather(from city: String,

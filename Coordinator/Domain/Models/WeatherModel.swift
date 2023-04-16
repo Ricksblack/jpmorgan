@@ -7,19 +7,19 @@
 
 import Foundation
 
-public struct WeatherModel {
-    let cityName: String
-    let icon: String
-    let degrees: String
-    let description: String
-    let highestTemperature: String
-    let lowestTemperature: String
-    let feelsLike: String
+public struct WeatherModel: Equatable {
+    public let cityName: String
+    public let icon: String
+    public let degrees: String
+    public let description: String
+    public let highestTemperature: String
+    public let lowestTemperature: String
+    public let feelsLike: String
     
     public init(cityName: String,
                 icon: String,
                 degrees: String,
-                description: String, 
+                description: String,
                 highestTemperature: String,
                 lowestTemperature: String,
                 feelsLike: String) {

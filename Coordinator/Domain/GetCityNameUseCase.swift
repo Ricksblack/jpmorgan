@@ -8,7 +8,7 @@
 import Foundation
 import CoreLocation
 
-protocol GetCityNameUseCase {
+public protocol GetCityNameUseCase {
     typealias UserLocationUseCaseCompletion = (Result<String, Error>) -> Void
     func run(completion: @escaping UserLocationUseCaseCompletion)
 }
@@ -17,13 +17,13 @@ final class GetCityNameUseCaseImpl: GetCityNameUseCase {
     let getUserLocationUseCase: GetUserLocationUseCase
     let getCityNameProvider: GetCityNameProvider
     
-    init(getUserLocationUseCase: GetUserLocationUseCase,
+    public init(getUserLocationUseCase: GetUserLocationUseCase,
          getCityNameProvider: GetCityNameProvider) {
         self.getUserLocationUseCase = getUserLocationUseCase
         self.getCityNameProvider = getCityNameProvider
     }
     
-    func run(completion: @escaping UserLocationUseCaseCompletion) {
+    public func run(completion: @escaping UserLocationUseCaseCompletion) {
         getUserCoordinates(completion: completion)
     }
 }

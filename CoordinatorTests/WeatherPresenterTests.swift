@@ -103,7 +103,7 @@ final class WeatherPresenterTests: XCTestCase {
     }
 }
 
-private extension WeatherModel {
+extension WeatherModel {
     static var mock: WeatherModel {
         WeatherModel(cityName: "test-city",
                      icon: "test-icon",

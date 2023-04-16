@@ -14,17 +14,17 @@ public protocol GetWeatherUseCase {
     func fromLocationIfAvailable(completion: @escaping WeatherByCityUseCaseCompletion)
 }
 
-final class GetWeatherUseCaseImpl: GetWeatherUseCase {
+public final class GetWeatherUseCaseImpl: GetWeatherUseCase {
     let weatherProvider: WeatherProvider
     let getCityNameUseCase: GetCityNameUseCase
 
-    init(provider: WeatherProvider,
+    public init(provider: WeatherProvider,
          getCityNameUseCase: GetCityNameUseCase) {
         self.weatherProvider = provider
         self.getCityNameUseCase = getCityNameUseCase
     }
 
-    func run(city: String, completion: @escaping WeatherByCityUseCaseCompletion) {
+    public func run(city: String, completion: @escaping WeatherByCityUseCaseCompletion) {
         weatherProvider.getWeather(from: city) { result in
             switch result {
             case .success(let model):
@@ -35,7 +35,7 @@ final class GetWeatherUseCaseImpl: GetWeatherUseCase {
         }
     }
     
-    func fromLocationIfAvailable(completion: @escaping WeatherByCityUseCaseCompletion) {
+    public func fromLocationIfAvailable(completion: @escaping WeatherByCityUseCaseCompletion) {
         getCityNameUseCase.run { [weak self] result in
             guard let self = self else {
                 return
