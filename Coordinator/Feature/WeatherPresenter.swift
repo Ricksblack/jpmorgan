@@ -25,14 +25,11 @@ final class WeatherPresenterImpl {
     
     var view: WeatherViewContract
     let getWeatherUseCase: GetWeatherUseCase
-    let getUserLocationUseCase: GetUserLocationUseCase
 
     init(view: WeatherViewContract,
-         getWeatherUseCase: GetWeatherUseCase,
-         getUserLocationUseCase: GetUserLocationUseCase) {
+         getWeatherUseCase: GetWeatherUseCase) {
         self.view = view
         self.getWeatherUseCase = getWeatherUseCase
-        self.getUserLocationUseCase = getUserLocationUseCase
     }
 }
 
@@ -40,19 +37,6 @@ final class WeatherPresenterImpl {
 
 extension WeatherPresenterImpl: WeatherPresenter {
     func loadDefaultWeather() {
-        getUserLocationUseCase.run { [weak self] result in
-            guard let self = self else {
-                return
-            }
-            switch result {
-            case .success(let coordinates):
-                handleGetUserLocationSuccess(with: coordinates)
-            case .failure:
-                // TODO: load last city searched
-                print("There was an error")
-            }
-        }
-        viewState = .empty
     }
 
     func didTapSearch(city: String?) {
