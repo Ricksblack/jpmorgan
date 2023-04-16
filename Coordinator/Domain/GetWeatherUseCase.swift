@@ -16,9 +16,12 @@ protocol GetWeatherUseCase {
 
 final class GetWeatherUseCaseImpl: GetWeatherUseCase {
     let provider: WeatherProvider
+    let getCityNameUseCase: GetCityNameUseCase
 
-    init(provider: WeatherProvider) {
+    init(provider: WeatherProvider,
+         getCityNameUseCase: GetCityNameUseCase) {
         self.provider = provider
+        self.getCityNameUseCase = getCityNameUseCase
     }
 
     func run(city: String, completion: @escaping WeatherByCityUseCaseCompletion) {
