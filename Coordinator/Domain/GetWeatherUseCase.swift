@@ -23,10 +23,8 @@ final class GetWeatherUseCaseImpl: GetWeatherUseCase {
         provider.getWeather(from: city) { result in
             switch result {
             case .success(let model):
-                // TODO: APPLY BUSINESS LOGIC
                 completion(.success(model))
             case .failure(let error):
-                // TODO: RETRIEVE ERROR
                 completion(.failure(error))
             }
         }
