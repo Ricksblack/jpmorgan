@@ -80,8 +80,8 @@ private extension WeatherPresenterImpl {
         print(weatherModel)
         let url = "https://openweathermap.org/img/wn/\(weatherModel.icon)@2x.png"
         let currentDegrees = weatherModel.degrees + "º"
-        let highestTemperature = weatherModel.highestTemperature + "º"
-        let lowestTemperature = weatherModel.highestTemperature + "º"
+        let highestTemperature = "H: \(weatherModel.highestTemperature)º"
+        let lowestTemperature = "L: \(weatherModel.lowestTemperature)º"
         let viewModel = WeatherViewModel(cityName: weatherModel.cityName,
                                          iconURL: url,
                                          currentDegrees: currentDegrees,
