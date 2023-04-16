@@ -8,8 +8,11 @@
 import Foundation
 
 protocol GetWeatherUseCase {
-    typealias WeatherUseCaseCompletion = (Result<WeatherModel, Error>) -> Void
-    func run(city: String, completion: @escaping WeatherUseCaseCompletion)
+    typealias WeatherByCityUseCaseCompletion = (Result<WeatherModel, Error>) -> Void
+    typealias WeatherByLocationUseCaseCompletion = (Result<WeatherModel, Error>) -> Void
+
+    func run(city: String, completion: @escaping WeatherByCityUseCaseCompletion)
+    func run(latitude: String, longitude: String, completion: @escaping WeatherByLocationUseCaseCompletion)
 }
 
 final class GetWeatherUseCaseImpl: GetWeatherUseCase {
@@ -19,7 +22,7 @@ final class GetWeatherUseCaseImpl: GetWeatherUseCase {
         self.provider = provider
     }
 
-    func run(city: String, completion: @escaping WeatherUseCaseCompletion) {
+    func run(city: String, completion: @escaping WeatherByCityUseCaseCompletion) {
         provider.getWeather(from: city) { result in
             switch result {
             case .success(let model):
@@ -28,5 +31,9 @@ final class GetWeatherUseCaseImpl: GetWeatherUseCase {
                 completion(.failure(error))
             }
         }
+    }
+
+    func run(latitude: String, longitude: String, completion: @escaping WeatherByLocationUseCaseCompletion) {
+        
     }
 }
