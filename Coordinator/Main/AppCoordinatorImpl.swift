@@ -20,13 +20,12 @@ final class AppCoordinatorImpl: Coordinator {
         let weatherViewController = WeatherViewController.instantiate()
         let weatherProvider = WeatherProviderImpl(url: nil)
         let getCityNameProvider = GetCityNameProviderImpl(url: nil)
-        let getCityByNameUseCase = GetCityNameUseCaseImpl(provider: getCityNameProvider)
+        let getUserLocationUseCase = GetUserLocationUseCaseImpl()
+        let getCityByNameUseCase = GetCityNameUseCaseImpl(getUserLocationUseCase: getUserLocationUseCase, provider: getCityNameProvider)
         let getWeatherUseCase = GetWeatherUseCaseImpl(provider: weatherProvider,
                                                       getCityNameUseCase: getCityByNameUseCase)
-        let getUserLocationUseCase = GetUserLocationUseCaseImpl()
         let presenter = WeatherPresenterImpl(view: weatherViewController,
-                                             getWeatherUseCase: getWeatherUseCase,
-                                             getUserLocationUseCase: getUserLocationUseCase)
+                                             getWeatherUseCase: getWeatherUseCase)
         presenter.view = weatherViewController
         weatherViewController.presenter = presenter
         navigationController.pushViewController(weatherViewController, animated: true)

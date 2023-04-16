@@ -14,8 +14,12 @@ protocol GetCityNameUseCase {
 }
 
 final class GetCityNameUseCaseImpl: GetCityNameUseCase {
+    let getUserLocationUseCase: GetUserLocationUseCase
     let provider: GetCityNameProvider
-    init(provider: GetCityNameProvider) {
+    
+    init(getUserLocationUseCase: GetUserLocationUseCase,
+         provider: GetCityNameProvider) {
+        self.getUserLocationUseCase = getUserLocationUseCase
         self.provider = provider
     }
     
