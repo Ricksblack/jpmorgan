@@ -15,12 +15,9 @@ public protocol GetCityNameProvider {
 }
 
 final class GetCityNameProviderImpl: GetCityNameProvider {
-    let url: URL?
     let service: HTTPProtocol
 
-    init(url: URL?,
-         service: HTTPProtocol = URLSession.shared) {
-        self.url = url
+    init(service: HTTPProtocol = URLSession.shared) {
         self.service = service
     }
 
