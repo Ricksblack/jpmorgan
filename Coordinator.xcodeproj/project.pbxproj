@@ -145,12 +145,12 @@
 			isa = PBXGroup;
 			children = (
 				3C404D5829E92E9900C16B3A /* Info.plist */,
-				3CE2C32129EC810D001BE4BD /* Shared */,
-				3C7258AF29EB21C600732B01 /* Domain */,
-				3C7258A829EA112000732B01 /* Helpers */,
 				3C7258A029EA084A00732B01 /* Data */,
+				3C7258AF29EB21C600732B01 /* Domain */,
 				3C72589B29E9D9DA00732B01 /* Feature */,
 				3C72589629E9BC4300732B01 /* Main */,
+				3CE2C32129EC810D001BE4BD /* Shared */,
+				3C7258A829EA112000732B01 /* Helpers */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
