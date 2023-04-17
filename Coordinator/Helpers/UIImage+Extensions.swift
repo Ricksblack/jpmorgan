@@ -8,6 +8,9 @@
 import Foundation
 import UIKit
 
+
+// Added extension to loadImage using the given cache array
+
 let imageCache = NSCache<NSString, UIImage>()
 extension UIImageView {
     func loadImageUsingCache(withUrl urlString: String) {

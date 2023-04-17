@@ -8,6 +8,9 @@
 import XCTest
 import Coordinator
 
+// Testing Presenter (Presentation logic), please notice import Coordinator without @testable, testing only trough exposed interfaces and functionality.
+// Saving completions in Spys allows us to simulate real behavior completion after instead of stubbing
+
 final class WeatherPresenterTests: XCTestCase {
     var sut: WeatherPresenter!
     private var view: WeatherViewSpy!
@@ -83,6 +86,8 @@ final class WeatherPresenterTests: XCTestCase {
         }
     }
     
+    // Implementing Spy behavior conforming to view abstraction
+    
     private class WeatherViewSpy: WeatherViewContract {
         var states = [WeatherViewState]()
         func changeViewState(_ state: Coordinator.WeatherViewState) {
@@ -90,6 +95,8 @@ final class WeatherPresenterTests: XCTestCase {
         }
     }
     
+    // Implementing Spy behavior conforming to view abstraction
+
     private class GetWeatherUseCaseSpy: GetWeatherUseCase {
         var savedCompletion: WeatherByCityUseCaseCompletion?
 

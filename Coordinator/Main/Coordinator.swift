@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+// Coordinator pattern is used to handle navigation, sticks to SRP (SOLID)
+
 protocol Coordinator {
     var childCoordinators: [Coordinator] { get }
     var navigationController: UINavigationController { get }

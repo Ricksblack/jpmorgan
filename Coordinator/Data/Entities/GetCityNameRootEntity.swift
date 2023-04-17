@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct GetCityNameRoot: Decodable {
+struct GetCityNameRootEntity: Decodable {
     let name: String
 }

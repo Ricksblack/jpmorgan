@@ -7,7 +7,17 @@
 
 import Foundation
 
+// Providers have a service which provides data, once data has been provided, providers are in charge of decode the response, for this example they're also mapping, we can have another layer if necessary to map the data using Mappers with their proper abstraction sticking to SRP
+
+// just one reason to change, sticking to SRP and ISP (SOLID principles)
+
 public protocol GetCityNameProvider {
+    /* we can retrieve custom errors
+        enum HTTPError: Error {
+        case networkError
+        }
+     For now just using normal errors due to lack of time
+     */
     typealias WeatherCompletion = (Result<String, Error>) -> Void
 
     func run(with coordinates: UserLocationCoordinatesModel,
@@ -17,12 +27,15 @@ public protocol GetCityNameProvider {
 final class GetCityNameProviderImpl: GetCityNameProvider {
     let service: HTTPProtocol
 
+    // Dependency Injection
+
     init(service: HTTPProtocol = URLSession.shared) {
         self.service = service
     }
 
     func run(with coordinates: UserLocationCoordinatesModel,
              completion: @escaping WeatherCompletion) {
+        // to handle creation of url and request if needed we can include MOYA 
         var components = URLComponents()
         components.queryItems = [
             URLQueryItem(name: "lat", value: coordinates.latitute),
@@ -42,7 +55,7 @@ final class GetCityNameProviderImpl: GetCityNameProvider {
                 switch result {
                 case .success(let data):
                     do {
-                        let model = try JSONDecoder().decode([GetCityNameRoot].self, from: data)
+                        let model = try JSONDecoder().decode([GetCityNameRootEntity].self, from: data)
                         completion(.success(model.first?.name ?? ""))
                     } catch {
                         completion(.failure(error))

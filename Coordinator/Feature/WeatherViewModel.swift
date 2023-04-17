@@ -7,6 +7,8 @@
 
 import Foundation
 
+// Feature layer uses ViewModels to transfer data
+
 public struct WeatherViewModel: Equatable {
     public let cityName: String
     public let iconURL: String

@@ -7,9 +7,21 @@
 
 import Foundation
 
+// abstraction for GetWeatherUseCase
+// Domain has use cases which contains/encapsulates business logic, use cases can have either another use cases (more business logic) or providers to get information from API/DB
+
+// it's defined as public since this can be moved to a new framework to be used for other modules, this also helps us to avoid @testable when testing, TESTING only trough exposed interfaces
+
 public protocol GetWeatherUseCase {
+    /* we can retrieve custom errors
+        enum HTTPError: Error {
+        case networkError
+        }
+     For now just using normal errors due to lack of time
+     */
     typealias WeatherByCityUseCaseCompletion = (Result<WeatherModel, Error>) -> Void
 
+    // it has the responsibility of retrieving WeatherModel by city or by location, sticks to SRP, having just one reason to change
     func run(city: String, completion: @escaping WeatherByCityUseCaseCompletion)
     func fromLocationIfAvailable(completion: @escaping WeatherByCityUseCaseCompletion)
 }
@@ -17,6 +29,8 @@ public protocol GetWeatherUseCase {
 public final class GetWeatherUseCaseImpl: GetWeatherUseCase {
     let weatherProvider: WeatherProvider
     let getCityNameUseCase: GetCityNameUseCase
+    
+    // dependency injection principle
 
     public init(provider: WeatherProvider,
          getCityNameUseCase: GetCityNameUseCase) {
@@ -44,6 +58,7 @@ public final class GetWeatherUseCaseImpl: GetWeatherUseCase {
             case .success(let city):
                 run(city: city, completion: completion)
             case .failure(let error):
+                // containing business logic ie if there's a city on cache after the location failed then retrieve it
                 if let city = getLastSearchedCity() {
                     run(city: city, completion: completion)
                 } else {
@@ -54,6 +69,7 @@ public final class GetWeatherUseCaseImpl: GetWeatherUseCase {
     }
 }
 
+// In order to save time it's been implemented in this way we can have a new use case if we need to cache store more data and abstract it to be testable. 
 private extension GetWeatherUseCaseImpl {
     func getLastSearchedCity() -> String? {
         UserDefaults.standard.value(forKey: "lastSearchedCity") as? String

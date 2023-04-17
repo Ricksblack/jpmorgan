@@ -8,6 +8,9 @@
 import XCTest
 import Coordinator
 
+// Testing Use cases (Business logic), please notice import Coordinator without @testable, testing only trough exposed interfaces and functionality.
+// Saving completions in Spys allows us to simulate real behavior completion after instead of stubbing
+
 final class GetWeatherUseCaseTests: XCTestCase {
     var sut: GetWeatherUseCase!
     private var weatherProvider: WeatherProviderSpy!

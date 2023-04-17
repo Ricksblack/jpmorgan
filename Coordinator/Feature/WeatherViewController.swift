@@ -7,6 +7,8 @@
 
 import UIKit
 
+// handles UI logic, updating, removing, placing, setting up.
+
 class WeatherViewController: UIViewController, Storyboardable {
     
     @IBOutlet private weak var cityTextfield: UITextField!
@@ -19,6 +21,7 @@ class WeatherViewController: UIViewController, Storyboardable {
     @IBOutlet private weak var feelsLikeLabel: UILabel!
     @IBOutlet private weak var searchButton: UIButton!
     
+    // will handle presentation logic
     var presenter: WeatherPresenter?
 
     override func viewDidLoad() {
@@ -82,6 +85,7 @@ private extension WeatherViewController {
     }
 }
 
+// Used to handle updates coming from presenter
 // MARK: - WeatherViewContract
 
 extension WeatherViewController: WeatherViewContract {
@@ -98,6 +102,8 @@ extension WeatherViewController: WeatherViewContract {
         }
     }
 }
+
+// MARK: - UITextFieldDelegate
 
 extension WeatherViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

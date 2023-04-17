@@ -8,7 +8,15 @@
 import Foundation
 import CoreLocation
 
+// it's defined as public since this can be moved to a new framework to be used for other modules, this also helps us to avoid @testable when testing, TESTING only trough exposed interfaces
+
 public protocol GetCityNameUseCase {
+    /* we can retrieve custom errors
+        enum HTTPError: Error {
+        case networkError
+        }
+     For now just using normal errors due to lack of time
+     */
     typealias UserLocationUseCaseCompletion = (Result<String, Error>) -> Void
     func run(completion: @escaping UserLocationUseCaseCompletion)
 }
@@ -16,6 +24,8 @@ public protocol GetCityNameUseCase {
 public final class GetCityNameUseCaseImpl: GetCityNameUseCase {
     let getUserLocationUseCase: GetUserLocationUseCase
     let getCityNameProvider: GetCityNameProvider
+    
+    // Dependency injection
     
     public init(getUserLocationUseCase: GetUserLocationUseCase,
                 getCityNameProvider: GetCityNameProvider) {
@@ -37,6 +47,7 @@ private extension GetCityNameUseCaseImpl {
                 return
             }
             switch result {
+                // Business logic once we've retrieved properly coordinates then get city name by coordinates
             case .success(let coordinates):
                 handleGetUserLocationSuccess(with: coordinates,
                                              completion: completion)

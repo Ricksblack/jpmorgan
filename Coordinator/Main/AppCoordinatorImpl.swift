@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+// Coordinators are in charge of handle navigation logic, sending data accross the views.
+
 final class AppCoordinatorImpl: Coordinator {
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController

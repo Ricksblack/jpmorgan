@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct WeatherRoot: Decodable {
+// Data layer uses entities to decode/encode responses
+// By doing this we can expose one interface in domain and creating this kind of mirror entities we can reuse that protocol to be used for retrieving data from API or any kind of storage, this helps us to conform to decodable using specific api coding keys without affecting the exposed model in the abstraction exposed to domain
+// Any change from API will ONLY AFFECT DATA LAYER, keeping the rest of the architecture intact (Modularity principle)
+
+struct WeatherRootEntity: Decodable {
     struct Main: Decodable {
         let feels_like: Double
         let temp: Double
@@ -37,6 +41,7 @@ struct WeatherRoot: Decodable {
     let weather: [Weather]
     let wind: Wind
     
+    // function used to parse to domain Models, giving the necessary information only to domain
     func toDomain() -> WeatherModel {
         WeatherModel(cityName: name,
                      icon: weather.first?.icon ?? "",

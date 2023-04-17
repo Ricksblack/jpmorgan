@@ -7,6 +7,9 @@
 
 import Foundation
 
+// Main layer is also known as Concrete layer where you instantiate and inject all dependencies required by modules.
+// Factories is a design pattern used to contain/encapsulate creation logic, sticks to SRP (SOLID)
+
 struct WeatherViewControllerFactory {
     static func makeWeatherViewController() -> WeatherViewController {
         let weatherViewController = WeatherViewController.instantiate()
