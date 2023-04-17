@@ -43,7 +43,7 @@ final class GetCityNameProviderImpl: GetCityNameProvider {
                 case .success(let data):
                     do {
                         let model = try JSONDecoder().decode([GetCityNameRoot].self, from: data)
-                        completion(.success(model.first!.name))
+                        completion(.success(model.first?.name ?? ""))
                     } catch {
                         completion(.failure(error))
                     }

@@ -27,6 +27,7 @@ final class WeatherProviderImpl: WeatherProvider {
             URLQueryItem(name: "q", value: city)
         ]
         guard let city = components.string else {
+            completion(.failure(NSError()))
             return
         }
         guard let url = URL(string: "https://api.openweathermap.org/data/2.5/weather\(city)&appid=6bd2b66fc1707a80a03c3b6ebd0c20b2") else {
@@ -41,7 +42,7 @@ final class WeatherProviderImpl: WeatherProvider {
                         let model = try JSONDecoder().decode(WeatherRoot.self, from: data)
                         completion(.success(model.toDomain()))
                     } catch {
-                        print(error)
+                        completion(.failure(error))
                     }
                 case .failure(let error):
                     completion(.failure(error))
