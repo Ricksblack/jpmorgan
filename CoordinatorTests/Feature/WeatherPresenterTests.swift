@@ -110,6 +110,8 @@ final class WeatherPresenterTests: XCTestCase {
     }
 }
 
+// Implemented extension to make tests clearer.
+
 extension WeatherModel {
     static var mock: WeatherModel {
         WeatherModel(cityName: "test-city",

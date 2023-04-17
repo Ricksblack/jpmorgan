@@ -102,6 +102,8 @@ final class GetCityNameUseCaseTests: XCTestCase {
     }
 }
 
+// Implemented extension to make tests clearer.
+
 private extension UserLocationCoordinatesModel {
     static var mock: Self {
         UserLocationCoordinatesModel(latitute: "lat-test",

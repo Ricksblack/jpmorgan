@@ -52,8 +52,8 @@ extension WeatherPresenterImpl: WeatherPresenter {
     }
 
     public func didTapSearch(city: String?) {
-        guard let city = city else {
-            // update view state to show error
+        guard let city = city, !city.isEmpty else {
+            viewState = .errorLoadingDefault
             return
         }
         // Saving last searched city, due to lack of time implemented in this way, we can also abstract this logic.
