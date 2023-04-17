@@ -43,6 +43,7 @@ private extension WeatherViewController {
     }
     
     func updateUIElements() {
+        iconImage.image = UIImage(systemName: "sun.haze")
         view.backgroundColor = UIColor(named: "backgroundColor")
         searchButton.tintColor = .white
         cityNameLabel.font = .systemFont(ofSize: 30, weight: .heavy)
