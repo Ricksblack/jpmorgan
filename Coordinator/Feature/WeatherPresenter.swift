@@ -83,13 +83,14 @@ private extension WeatherPresenterImpl {
         let currentDegrees = weatherModel.degrees + "º"
         let highestTemperature = "H: \(weatherModel.highestTemperature)º"
         let lowestTemperature = "L: \(weatherModel.lowestTemperature)º"
+        let feelsLike = "Feels like: \(weatherModel.feelsLike)º"
         let viewModel = WeatherViewModel(cityName: weatherModel.cityName,
                                          iconURL: url,
                                          currentDegrees: currentDegrees,
                                          weatherDescription: weatherModel.description,
                                          highestDegrees: highestTemperature,
                                          lowestDegrees: lowestTemperature,
-                                         feelsLike: weatherModel.feelsLike)
+                                         feelsLike: feelsLike)
         self.viewState = .updateWeather(viewModel: viewModel)
     }
 }
