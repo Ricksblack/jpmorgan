@@ -17,7 +17,8 @@ class WeatherViewController: UIViewController, Storyboardable {
     @IBOutlet private weak var highestTemperature: UILabel!
     @IBOutlet private weak var lowestTemperature: UILabel!
     @IBOutlet private weak var feelsLikeLabel: UILabel!
-
+    @IBOutlet private weak var searchButton: UIButton!
+    
     var presenter: WeatherPresenter?
 
     override func viewDidLoad() {
@@ -42,6 +43,8 @@ private extension WeatherViewController {
     }
     
     func updateUIElements() {
+        view.backgroundColor = UIColor(named: "backgroundColor")
+        searchButton.tintColor = .white
         cityNameLabel.font = .systemFont(ofSize: 30, weight: .heavy)
         degreesLabel.font = .systemFont(ofSize: 40, weight: .bold)
         weatherDescription.font = .systemFont(ofSize: 20, weight: .semibold)
