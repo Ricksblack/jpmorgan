@@ -32,7 +32,6 @@ final class WeatherProviderImpl: WeatherProvider {
         guard let city = components.string else {
             return
         }
-//        let modifiedCity = city.replacingOccurrences(of: " ", with: "")
         guard let url = URL(string: "https://api.openweathermap.org/data/2.5/weather\(city)&appid=6bd2b66fc1707a80a03c3b6ebd0c20b2") else {
             completion(.failure(NSError()))
             return

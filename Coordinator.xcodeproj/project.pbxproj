@@ -102,6 +102,23 @@
 			path = Providers;
 			sourceTree = "<group>";
 		};
+		3C312D4229ECBA4B000A4A2F /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				3CE2C33129EC9DD3001BE4BD /* GetWeatherUseCaseTests.swift */,
+				3CE2C33329ECAA19001BE4BD /* GetCityNameUseCaseTests.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		3C312D4329ECBA5B000A4A2F /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				3CE2C32F29EC8377001BE4BD /* WeatherPresenterTests.swift */,
+			);
+			path = Feature;
+			sourceTree = "<group>";
+		};
 		3C404D3E29E92E9900C16B3A = {
 			isa = PBXGroup;
 			children = (
@@ -216,9 +233,8 @@
 		3CE2C32729EC835C001BE4BD /* CoordinatorTests */ = {
 			isa = PBXGroup;
 			children = (
-				3CE2C32F29EC8377001BE4BD /* WeatherPresenterTests.swift */,
-				3CE2C33129EC9DD3001BE4BD /* GetWeatherUseCaseTests.swift */,
-				3CE2C33329ECAA19001BE4BD /* GetCityNameUseCaseTests.swift */,
+				3C312D4329ECBA5B000A4A2F /* Feature */,
+				3C312D4229ECBA4B000A4A2F /* Domain */,
 			);
 			path = CoordinatorTests;
 			sourceTree = "<group>";
