@@ -54,7 +54,3 @@ final class GetCityNameProviderImpl: GetCityNameProvider {
         }
     }
 }
-
-struct GetCityNameRoot: Decodable {
-    let name: String
-}
