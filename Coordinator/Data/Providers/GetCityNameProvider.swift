@@ -23,9 +23,16 @@ final class GetCityNameProviderImpl: GetCityNameProvider {
 
     func run(with coordinates: UserLocationCoordinatesModel,
              completion: @escaping WeatherCompletion) {
-        let latitude = coordinates.latitute
-        let longitude = coordinates.longitude
-        let urlString = "https://api.openweathermap.org/geo/1.0/reverse?lat=\(latitude)&lon=\(longitude)&appid=6bd2b66fc1707a80a03c3b6ebd0c20b2"
+        var components = URLComponents()
+        components.queryItems = [
+            URLQueryItem(name: "lat", value: coordinates.latitute),
+            URLQueryItem(name: "lon", value: coordinates.longitude)
+        ]
+        guard let query = components.string else {
+            completion(.failure(NSError()))
+            return
+        }
+        let urlString = "https://api.openweathermap.org/geo/1.0/reverse\(query)&appid=6bd2b66fc1707a80a03c3b6ebd0c20b2"
         guard let url = URL(string: urlString) else {
             completion(.failure(NSError()))
             return
