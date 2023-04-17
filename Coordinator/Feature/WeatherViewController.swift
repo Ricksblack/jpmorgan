@@ -65,10 +65,17 @@ private extension WeatherViewController {
     }
     
     func handleErrorLoadingWeather(for city: String) {
-        // move this logic to coordinator
+        presentAlert(message: "There was an error loading the weather for \(city)")
+    }
+    
+    func handleErrorLoadingDefaultWeather() {
+        iconImage.image = UIImage(systemName: "sun.haze")
+    }
+    
+    func presentAlert(message: String?) {
         let okAction = UIAlertAction(title: "Ok", style: .default)
         let alertController = UIAlertController(title: "Error",
-                                                message: "There was an error loading the weather for \(city)",
+                                                message: message,
                                                 preferredStyle: .alert)
         alertController.addAction(okAction)
         self.present(alertController, animated: true)
@@ -87,7 +94,7 @@ extension WeatherViewController: WeatherViewContract {
         case .errorLoadingWeather(let city):
             handleErrorLoadingWeather(for: city)
         case .errorLoadingDefault:
-            break
+            handleErrorLoadingDefaultWeather()
         }
     }
 }
