@@ -179,10 +179,9 @@
 		3C7258A029EA084A00732B01 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				3CBB9BE929ED33A300289ECA /* Services */,
+				3CBB9BE829ED339600289ECA /* Entities */,
 				3C05D69E29EBA1E4009874B5 /* Providers */,
-				3C7258A129EA085600732B01 /* WeatherRootEntity.swift */,
-				3C7258A329EA093B00732B01 /* HTTPProtocol.swift */,
-				3CBB9BE629ED315C00289ECA /* GetCityNameRootEntity.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -230,6 +229,23 @@
 				3CBB9BE429ED2B7200289ECA /* WeatherViewControllerFactory.swift */,
 			);
 			path = Factories;
+			sourceTree = "<group>";
+		};
+		3CBB9BE829ED339600289ECA /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				3C7258A129EA085600732B01 /* WeatherRootEntity.swift */,
+				3CBB9BE629ED315C00289ECA /* GetCityNameRootEntity.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		3CBB9BE929ED33A300289ECA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3C7258A329EA093B00732B01 /* HTTPProtocol.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		3CE2C32129EC810D001BE4BD /* Shared */ = {
