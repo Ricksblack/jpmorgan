@@ -16,6 +16,7 @@ class WeatherViewController: UIViewController, Storyboardable {
     @IBOutlet private weak var weatherDescription: UILabel!
     @IBOutlet private weak var highestTemperature: UILabel!
     @IBOutlet private weak var lowestTemperature: UILabel!
+    @IBOutlet private weak var feelsLikeLabel: UILabel!
 
     var presenter: WeatherPresenter?
 
@@ -26,6 +27,7 @@ class WeatherViewController: UIViewController, Storyboardable {
     
     @IBAction func didTapSearch(_ sender: UIButton) {
         presenter?.didTapSearch(city: cityTextfield.text)
+        cityTextfield.resignFirstResponder()
     }
 }
 
@@ -44,6 +46,7 @@ private extension WeatherViewController {
         weatherDescription.font = .systemFont(ofSize: 20, weight: .semibold)
         highestTemperature.font = .systemFont(ofSize: 15, weight: .regular)
         lowestTemperature.font = .systemFont(ofSize: 15, weight: .regular)
+        lowestTemperature.font = .systemFont(ofSize: 15, weight: .regular)
     }
 
     func handleUpdateWeather(_ viewModel: WeatherViewModel) {
@@ -53,6 +56,7 @@ private extension WeatherViewController {
         weatherDescription.text = viewModel.weatherDescription
         highestTemperature.text = viewModel.highestDegrees
         lowestTemperature.text = viewModel.lowestDegrees
+        feelsLikeLabel.text = viewModel.feelsLike
     }
     
     func showEmptyWeather() {
