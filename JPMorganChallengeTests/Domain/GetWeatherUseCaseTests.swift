@@ -6,7 +6,7 @@
 //
 
 import XCTest
-import Coordinator
+import JPMorganChallenge
 
 final class GetWeatherUseCaseTests: XCTestCase {
     var sut: GetWeatherUseCase!

@@ -6,7 +6,7 @@
 //
 
 import XCTest
-import Coordinator
+import JPMorganChallenge
 
 final class GetCityNameUseCaseTests: XCTestCase {
     var sut: GetCityNameUseCase!
@@ -93,7 +93,7 @@ final class GetCityNameUseCaseTests: XCTestCase {
     
     private class GetCityNameProviderSpy: GetCityNameProvider {
         var capturedCompletion: WeatherCompletion?
-        func run(with coordinates: Coordinator.UserLocationCoordinatesModel, completion: @escaping WeatherCompletion) {
+        func run(with coordinates: UserLocationCoordinatesModel, completion: @escaping WeatherCompletion) {
             capturedCompletion = completion
         }
     }

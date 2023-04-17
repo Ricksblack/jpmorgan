@@ -6,7 +6,7 @@
 //
 
 import XCTest
-import Coordinator
+import JPMorganChallenge
 
 final class WeatherPresenterTests: XCTestCase {
     var sut: WeatherPresenter!
@@ -85,7 +85,7 @@ final class WeatherPresenterTests: XCTestCase {
     
     private class WeatherViewSpy: WeatherViewContract {
         var states = [WeatherViewState]()
-        func changeViewState(_ state: Coordinator.WeatherViewState) {
+        func changeViewState(_ state: WeatherViewState) {
             states.append(state)
         }
     }
