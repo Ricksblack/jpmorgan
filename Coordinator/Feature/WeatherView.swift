@@ -10,7 +10,6 @@ import Foundation
 public enum WeatherViewState: Equatable {
     case idle
     case updateWeather(viewModel: WeatherViewModel)
-    case empty
     case errorLoadingWeather(city: String)
     case errorLoadingDefault
 }

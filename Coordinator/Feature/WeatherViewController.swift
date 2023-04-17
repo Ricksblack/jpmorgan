@@ -64,10 +64,6 @@ private extension WeatherViewController {
         feelsLikeLabel.text = viewModel.feelsLike
     }
     
-    func showEmptyWeather() {
-        
-    }
-    
     func handleErrorLoadingWeather(for city: String) {
         // move this logic to coordinator
         let okAction = UIAlertAction(title: "Ok", style: .default)
@@ -88,8 +84,6 @@ extension WeatherViewController: WeatherViewContract {
             break
         case .updateWeather(let viewModel):
             handleUpdateWeather(viewModel)
-        case .empty:
-            showEmptyWeather()
         case .errorLoadingWeather(let city):
             handleErrorLoadingWeather(for: city)
         case .errorLoadingDefault:
