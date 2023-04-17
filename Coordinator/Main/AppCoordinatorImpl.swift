@@ -17,18 +17,7 @@ final class AppCoordinatorImpl: Coordinator {
     }
     
     func start() {
-        let weatherViewController = WeatherViewController.instantiate()
-        let weatherProvider = WeatherProviderImpl()
-        let getCityNameProvider = GetCityNameProviderImpl()
-        let getUserLocationUseCase = GetUserLocationUseCaseImpl()
-        let getCityByNameUseCase = GetCityNameUseCaseImpl(getUserLocationUseCase: getUserLocationUseCase,
-                                                          getCityNameProvider: getCityNameProvider)
-        let getWeatherUseCase = GetWeatherUseCaseImpl(provider: weatherProvider,
-                                                      getCityNameUseCase: getCityByNameUseCase)
-        let presenter = WeatherPresenterImpl(view: weatherViewController,
-                                             getWeatherUseCase: getWeatherUseCase)
-        presenter.view = weatherViewController
-        weatherViewController.presenter = presenter
+        let weatherViewController = WeatherViewControllerFactory.makeWeatherViewController()
         navigationController.pushViewController(weatherViewController, animated: true)
     }
 }
