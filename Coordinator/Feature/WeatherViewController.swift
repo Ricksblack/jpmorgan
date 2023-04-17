@@ -37,6 +37,7 @@ private extension WeatherViewController {
     func setup() {
         updateUIElements()
         cityTextfield.placeholder = "Enter a city name"
+        cityTextfield.delegate = self
         presenter?.loadDefaultWeather()
     }
     
@@ -90,5 +91,13 @@ extension WeatherViewController: WeatherViewContract {
         case .errorLoadingDefault:
             break
         }
+    }
+}
+
+extension WeatherViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        presenter?.didTapSearch(city: textField.text)
+        textField.resignFirstResponder()
+        return true
     }
 }
